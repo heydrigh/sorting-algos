@@ -58,6 +58,19 @@ export default function SortingVisualizer() {
 
 	return (
 		<div className='min-h-screen flex flex-col'>
+			{/* Modern Gradient Header */}
+			<header className='w-full  bg-gradient-to-r from-indigo-900 via-gray-900 to-gray-800 shadow-lg py-6 px-4 flex flex-col items-center'>
+				<h1 className='text-3xl md:text-4xl font-extrabold text-white tracking-wide drop-shadow-lg flex items-center gap-2'>
+					<span role='img' aria-label='music'>
+						🎵
+					</span>{' '}
+					Sorting Visualizer <span className='hidden md:inline'>with Sound</span>
+				</h1>
+				<p className='mt-2 text-gray-300 text-sm md:text-base font-mono opacity-80'>
+					Visualize, listen, and learn classic sorting algorithms.
+				</p>
+			</header>
+
 			<Controls
 				arraySize={arraySize}
 				speed={speed}
@@ -74,12 +87,12 @@ export default function SortingVisualizer() {
 			{/* Visualization Area */}
 			<div className='w-full flex flex-col md:flex-row h-[calc(100vh-112px)]'>
 				{/* Bars Visualization */}
-				<div className='w-full md:w-1/2 h-full bg-gray-50 dark:bg-gray-900 p-2 md:p-4 overflow-hidden'>
+				<div className='w-full md:w-1/2 h-full bg-gray-900 p-2 md:p-4 overflow-hidden'>
 					<div className='h-full w-full flex items-end gap-[1px]'>{bars}</div>
 				</div>
 
 				{/* Code Display */}
-				<div className='w-full md:w-1/2 max-h-[40vh] md:max-h-none h-auto md:h-full bg-white dark:bg-gray-800 p-4 overflow-y-auto'>
+				<div className='w-full md:w-1/2 max-h-[40vh] md:max-h-none h-auto md:h-full bg-gray-800 p-4 overflow-y-auto'>
 					<SyntaxHighlighter
 						language='typescript'
 						style={oneDark}
