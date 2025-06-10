@@ -7,6 +7,7 @@ import Controls from '../Controls'
 import { useControls } from '@/hooks/useControls'
 import { useVisualization } from '@/hooks/useVisualization'
 import { sortingAlgorithms } from '@/lib/sorting'
+import { SortingAlgorithm } from '@/lib/sorting/types'
 
 export default function SortingVisualizer() {
 	const {
@@ -42,6 +43,19 @@ export default function SortingVisualizer() {
 		[data, activeIndices, arraySize]
 	)
 
+	const onAlgorithmChange = (algorithm: SortingAlgorithm) => {
+		handleAlgorithmChange(algorithm)
+		handleReset()
+	}
+	const onSizeChange = (size: number) => {
+		handleSizeChange(size)
+		handleReset()
+	}
+	const onSpeedChange = (speed: number) => {
+		handleSpeedChange(speed)
+		handleReset()
+	}
+
 	return (
 		<div className='min-h-screen flex flex-col'>
 			<Controls
@@ -50,9 +64,9 @@ export default function SortingVisualizer() {
 				selectedAlgorithm={selectedAlgorithm}
 				isComplete={isComplete}
 				isSorting={isSorting}
-				onAlgorithmChange={handleAlgorithmChange}
-				onSizeChange={handleSizeChange}
-				onSpeedChange={handleSpeedChange}
+				onAlgorithmChange={onAlgorithmChange}
+				onSizeChange={onSizeChange}
+				onSpeedChange={onSpeedChange}
 				onStart={handleStart}
 				onReset={handleReset}
 			/>

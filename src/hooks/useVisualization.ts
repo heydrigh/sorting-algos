@@ -21,7 +21,6 @@ export function useVisualization({ arraySize, speed, selectedAlgorithm }: UseVis
 	const pendingStep = useRef<SortStep | null>(null)
 	const rafScheduled = useRef(false)
 
-	// Initialize data on client side only
 	useEffect(() => {
 		const newData = shuffleArray(Array.from({ length: arraySize }, (_, i) => i + 1))
 		setData(newData)

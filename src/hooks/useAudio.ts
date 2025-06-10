@@ -12,7 +12,7 @@ export function useAudio() {
 			const oscillator = audioContextRef.current.createOscillator()
 			const gainNode = audioContextRef.current.createGain()
 
-			oscillator.type = 'sine'
+			oscillator.type = 'triangle'
 			oscillator.frequency.setValueAtTime(frequency, audioContextRef.current.currentTime)
 			gainNode.gain.setValueAtTime(0.1, audioContextRef.current.currentTime)
 			gainNode.gain.exponentialRampToValueAtTime(0.01, audioContextRef.current.currentTime + 0.1)
